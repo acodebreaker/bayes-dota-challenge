@@ -15,7 +15,7 @@ public class Kill {
     @Id
     @GeneratedValue
     private int id;
-    private int heroId;
+    private String heroId;
     private int kills;
     private int matchId;
 }

@@ -18,5 +18,5 @@ public class Hero {
     private String heroName;
     @Column(name = "match_id")
     private Long matchId;
-    private Integer kills;
+    //\private Integer kills;
 }

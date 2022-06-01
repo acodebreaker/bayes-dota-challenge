@@ -14,7 +14,7 @@ public class HeroSpell {
     @Id
     private int id;
     private int heroId;
-    private String name;
-    private int count;
+    private String spell;
+    private int casts;
     private int matchId;
 }

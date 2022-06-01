@@ -6,6 +6,10 @@ import org.apache.commons.lang3.NotImplementedException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Arrays;
+import java.util.UUID;
+import java.util.stream.Stream;
+
 @Slf4j
 @Service
 public class MatchServiceImpl implements MatchService {
@@ -16,7 +20,16 @@ public class MatchServiceImpl implements MatchService {
 
     @Override
     public Long ingestMatch(String payload) {
-        // TODO
-        throw new NotImplementedException("should be implemented by the applicant");
+        String [] lines = payload.split("\n");
+        Stream.of(lines).forEach(this::processLine);
+        return 1L;
     }
+
+    private void processLine(String line){
+
+
+
+    }
+
+
 }

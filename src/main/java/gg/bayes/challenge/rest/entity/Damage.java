@@ -16,6 +16,7 @@ public class Damage {
     @GeneratedValue
     private int id;
     private int heroId;
+    private long matchId;
     private int totalDamage;
     private String target;
     private int damageInstances;

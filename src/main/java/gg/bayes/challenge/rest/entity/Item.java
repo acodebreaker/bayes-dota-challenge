@@ -1,16 +1,21 @@
 package gg.bayes.challenge.rest.entity;
 
+import lombok.Builder;
+
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-@Table(name = "items")
+@Entity
+@Builder
 public class Item {
 
     @Id
     @GeneratedValue
     private int id;
-    private int heroId;
+    private String heroName;
     private long timestamp;
-    private int matchId;
+    private long matchId;
+    private String itemName;
 }

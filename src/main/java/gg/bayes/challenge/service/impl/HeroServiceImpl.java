@@ -6,10 +6,7 @@ import gg.bayes.challenge.rest.model.HeroDamage;
 import gg.bayes.challenge.rest.model.HeroItems;
 import gg.bayes.challenge.rest.model.HeroKills;
 import gg.bayes.challenge.rest.model.HeroSpells;
-import gg.bayes.challenge.rest.repository.DamageRepository;
-import gg.bayes.challenge.rest.repository.HeroRepository;
-import gg.bayes.challenge.rest.repository.KillsRepository;
-import gg.bayes.challenge.rest.repository.SpellRepository;
+import gg.bayes.challenge.rest.repository.*;
 import gg.bayes.challenge.service.HeroService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -26,18 +23,20 @@ public class HeroServiceImpl implements HeroService {
     private final SpellRepository spellRepository;
     private final DamageRepository damageRepository;
     private final HeroRepository heroRepository;
+    private final ItemRepository itemRepository;
 
     @Autowired
-    public HeroServiceImpl(KillsRepository killsRepository, SpellRepository spellRepository, DamageRepository damageRepository, HeroRepository heroRepository) {
+    public HeroServiceImpl(KillsRepository killsRepository, SpellRepository spellRepository, DamageRepository damageRepository, HeroRepository heroRepository, ItemRepository itemRepository) {
         this.killsRepository = killsRepository;
         this.spellRepository = spellRepository;
         this.damageRepository = damageRepository;
         this.heroRepository = heroRepository;
+        this.itemRepository = itemRepository;
     }
 
     @Override
     public List<HeroItems> getItems(Long matchId, String heroName) {
-        return null;
+        return itemRepository.findByMatchIdAndHeroName(matchId,heroName);
     }
 
     @Override

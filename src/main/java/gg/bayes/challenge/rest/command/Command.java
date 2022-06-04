@@ -1,7 +1,10 @@
 package gg.bayes.challenge.rest.command;
 
+import java.util.Map;
+
 public interface Command {
 
-    public Integer action(String [] inputs);
-
+    default public Integer action(String[] inputs, Map<String, Object> repositories, Long matchId){
+        return null;
+    }
 }

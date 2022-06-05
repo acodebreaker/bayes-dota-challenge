@@ -2,11 +2,10 @@ package gg.bayes.challenge.rest.entity;
 
 import lombok.Data;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
+@Table(indexes = {@Index(columnList = "heroName")})
 @Data
 public class HeroSpell {
 

@@ -3,14 +3,11 @@ package gg.bayes.challenge.rest.entity;
 
 import lombok.Data;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Data
-@Table(name = "damages")
+@Table(indexes = {@Index(columnList = "matchId,heroName")})
 public class Damage {
     @Id
     @GeneratedValue

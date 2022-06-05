@@ -2,13 +2,11 @@ package gg.bayes.challenge.rest.entity;
 
 import lombok.Data;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 @Data
+@Table(indexes = {@Index(columnList = "matchId")})
 public class Hero {
 
     @Id

@@ -20,9 +20,9 @@ public enum CommandTypes implements Command {
             ItemRepository itemRepository = (ItemRepository) repositories.get("itemRepository");
             Item item = new Item();
 
-            item.setHeroName(inputs[1].substring(inputs[1].lastIndexOf("_") + 1));
+            item.setHeroName(inputs[1]);
             item.setMatchId(matchId);
-            item.setTimestamp(matchId);
+            item.setTimestamp(Long.valueOf(inputs[0]));
             item.setItem(inputs[4].substring(inputs[4].lastIndexOf("_") + 1));
 
             itemRepository.save(item);
@@ -35,7 +35,7 @@ public enum CommandTypes implements Command {
         public Integer action(String[] inputs, Map<String, Object> repositories, Long matchId) {
             SpellRepository spellRepository = (SpellRepository) repositories.get("spellRepository");
             String spell = inputs[4];
-            String heroName = inputs[1].substring(inputs[1].lastIndexOf("_") + 1);
+            String heroName = inputs[1];
 
             HeroSpell heroSpellResponse =spellRepository.findByMatchIdAndHeroNameAndSpell(matchId,heroName,spell);
             if(heroSpellResponse==null) {
@@ -61,7 +61,7 @@ public enum CommandTypes implements Command {
         @Override
         public Integer action(String[] inputs, Map<String, Object> repositories, Long matchId) {
             HeroRepository heroRepository = (HeroRepository) repositories.get("heroRepository");
-            String killer = inputs[5].substring(inputs[1].lastIndexOf("_") + 1);
+            String killer = inputs[5].substring(inputs[5].lastIndexOf("_") + 1);
             Hero hero =heroRepository.findByMatchIdAndHero(matchId, killer);
             if(hero==null){
                 hero = new Hero();
@@ -81,18 +81,18 @@ public enum CommandTypes implements Command {
         @Override
         public Integer action(String[] inputs, Map<String, Object> repositories, Long matchId) {
             DamageRepository damageRepository = (DamageRepository) repositories.get("damageRepository");
-            String heroName = inputs[1].substring(inputs[1].lastIndexOf("_") + 1);
-            String target = inputs[3].substring(inputs[3].lastIndexOf("_") + 1);
-            Integer damageDone = Integer.valueOf(inputs[6]);
+            String heroName = inputs[1];
+            String target = inputs[3];
+            Integer damageDone = Integer.valueOf(inputs[7]);
             Damage damage = damageRepository.findByMatchIdAndHeroNameAndTarget(matchId, heroName, target);
             if(damage == null){
                 Damage damages = new Damage();
                 damages.setDamageInstances(1);
                 damages.setHeroName(heroName);
                 damages.setMatchId(matchId);
+                damages.setTarget(target);
                 damages.setTotalDamage(damageDone);
                 damageRepository.save(damages);
-
             }
             else{
                 damage.setTotalDamage(damage.getTotalDamage() + damageDone);

@@ -1,15 +1,15 @@
 package gg.bayes.challenge.service;
 
-import gg.bayes.challenge.rest.entity.Item;
+import gg.bayes.challenge.rest.entity.HeroSpell;
 import gg.bayes.challenge.rest.repository.DamageRepository;
 import gg.bayes.challenge.rest.repository.HeroRepository;
 import gg.bayes.challenge.rest.repository.ItemRepository;
 import gg.bayes.challenge.rest.repository.SpellRepository;
 import org.junit.jupiter.api.Test;
-import org.mockito.Mock;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
+
 
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.*;
@@ -37,6 +37,18 @@ public class MatchServiceImplTests {
     private static final String MOCK_LINE_CASTS = "[00:28:04.710] npc_dota_hero_rubick casts ability rubick_fade_bolt (lvl 4) on npc_dota_hero_puck\n";
     private static final String MOCK_LINE_KILLS ="[00:28:10.242] npc_dota_hero_puck is killed by npc_dota_hero_rubick\n";
 
+    private static final Long MOCK_MATCH_ID = 123L;
+    private static final String MOCK_HERO_NAME = "HERONAME";
+    private static final String MOCK_ITEM = "HEROITEM";
+    private static final int MOCK_KILLS = 2;
+    private static final Long MOCK_TIMESTAMP = 56789L;
+    private static final String MOCK_SPELL = "SPELL";
+    private static final int MOCK_CASTS = 9;
+    private static final String MOCK_TARGET = "TARGET";
+    private static final int MOCK_DAMAGE = 567;
+    private static final int MOCK_DAMAGE_INSTANCES = 10;
+
+
     @Test
     public void testIngestMatchWhenBuysItem(){
         matchService.ingestMatch(MOCK_LINE_BUYS);
@@ -61,6 +73,15 @@ public class MatchServiceImplTests {
     public void testIngestMatchWhenKills(){
         matchService.ingestMatch(MOCK_LINE_KILLS);
         verify(heroRepository , times(1)).save( any() );
+    }
+
+    private HeroSpell getMockSpell() {
+        HeroSpell spell = new HeroSpell();
+        spell.setCasts(MOCK_CASTS);
+        spell.setHeroName(MOCK_HERO_NAME);
+        spell.setMatchId(MOCK_MATCH_ID);
+        spell.setSpell(MOCK_SPELL);
+        return spell;
     }
 
 

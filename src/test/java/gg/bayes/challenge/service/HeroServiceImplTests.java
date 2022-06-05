@@ -71,6 +71,7 @@ public class HeroServiceImplTests {
         Assertions.assertEquals(matchKills.get(0).getKills(), MOCK_KILLS);
         Assertions.assertEquals(matchKills.get(0).getHero(), MOCK_HERO_NAME);
 
+
     }
 
     @Test
@@ -90,7 +91,7 @@ public class HeroServiceImplTests {
 
         Assertions.assertEquals(damages.get(0).getTotalDamage(), MOCK_DAMAGE);
         Assertions.assertEquals(damages.get(0).getDamageInstances(), MOCK_DAMAGE_INSTANCES);
-
+        Assertions.assertEquals(damages.get(0).getTarget(),MOCK_TARGET);
     }
 
     private List<Damage> getMockDamage() {
@@ -122,6 +123,7 @@ public class HeroServiceImplTests {
         hero.setKills(MOCK_KILLS);
         hero.setHero(MOCK_HERO_NAME);
         hero.setMatchId(MOCK_MATCH_ID);
+        hero.setId(1);
         matchKills.add(hero);
         return matchKills;
     }

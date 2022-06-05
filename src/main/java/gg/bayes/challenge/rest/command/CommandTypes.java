@@ -16,7 +16,7 @@ public enum CommandTypes implements Command {
 
     BUYS {
         @Override
-        public Integer action(String[] inputs, Map<String, Object> repositories, Long matchId) {
+        public void action(String[] inputs, Map<String, Object> repositories, Long matchId) {
             ItemRepository itemRepository = (ItemRepository) repositories.get("itemRepository");
             Item item = new Item();
 
@@ -26,13 +26,12 @@ public enum CommandTypes implements Command {
             item.setItem(inputs[4].substring(inputs[4].lastIndexOf("_") + 1));
 
             itemRepository.save(item);
-            return 1;
         }
     },
 
     CASTS {
         @Override
-        public Integer action(String[] inputs, Map<String, Object> repositories, Long matchId) {
+        public void action(String[] inputs, Map<String, Object> repositories, Long matchId) {
             SpellRepository spellRepository = (SpellRepository) repositories.get("spellRepository");
             String spell = inputs[4];
             String heroName = inputs[1];
@@ -53,13 +52,12 @@ public enum CommandTypes implements Command {
                 heroSpellResponse.setCasts(heroSpellResponse.getCasts() + 1);
                 spellRepository.save(heroSpellResponse);
             }
-            return 1;
         }
     },
 
     IS {
         @Override
-        public Integer action(String[] inputs, Map<String, Object> repositories, Long matchId) {
+        public void action(String[] inputs, Map<String, Object> repositories, Long matchId) {
             HeroRepository heroRepository = (HeroRepository) repositories.get("heroRepository");
             String killer = inputs[5].substring(inputs[5].lastIndexOf("_") + 1);
             Hero hero =heroRepository.findByMatchIdAndHero(matchId, killer);
@@ -74,12 +72,11 @@ public enum CommandTypes implements Command {
                 hero.setKills(hero.getKills() + 1);
                 heroRepository.save(hero);
             }
-            return 1;
         }
     },
     HITS {
         @Override
-        public Integer action(String[] inputs, Map<String, Object> repositories, Long matchId) {
+        public void action(String[] inputs, Map<String, Object> repositories, Long matchId) {
             DamageRepository damageRepository = (DamageRepository) repositories.get("damageRepository");
             String heroName = inputs[1];
             String target = inputs[3];
@@ -100,17 +97,9 @@ public enum CommandTypes implements Command {
                 damageRepository.save(damage);
             }
 
-            return 1;
         }
 
-    },
-    USES {
-        @Override
-        public Integer action(String[] inputs, Map<String, Object> repositories, Long matchId) {
-            return null;
-        }
-
-    },
+    }
 
 
 }

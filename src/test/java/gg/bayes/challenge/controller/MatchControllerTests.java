@@ -83,9 +83,9 @@ public class MatchControllerTests {
     @Test
     public void testGetDamage(){
         when(heroService.getDamage(anyLong(), anyString())).thenReturn(getMockDamage());
-        ResponseEntity<List<HeroDamage>> itemsResponse = matchController.getDamage(MOCK_MATCH_ID, MOCK_HERO_NAME);
-        Assertions.assertEquals(itemsResponse.getBody().get(0).getDamageInstances(),MOCK_DAMAGE_INSTANCES );
-        Assertions.assertEquals(itemsResponse.getBody().get(0).getTotalDamage(),MOCK_DAMAGE );
+        ResponseEntity<List<HeroDamage>> matchControllerDamage = matchController.getDamage(MOCK_MATCH_ID, MOCK_HERO_NAME);
+        Assertions.assertEquals(matchControllerDamage.getBody().get(0).getDamageInstances(),MOCK_DAMAGE_INSTANCES );
+        Assertions.assertEquals(matchControllerDamage.getBody().get(0).getTotalDamage(),MOCK_DAMAGE );
     }
 
     private List<HeroKills> getMockKills(){

@@ -63,7 +63,6 @@ public class HeroServiceImpl implements HeroService {
 
     }
 
-
     @Override
     public List<HeroDamage> getDamage(Long matchId, String heroName) {
         return damageMapper.map(damageRepository.findByMatchIdAndHeroName(matchId, heroName));

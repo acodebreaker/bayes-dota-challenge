@@ -57,7 +57,7 @@ public class MatchServiceImpl implements MatchService {
         Long matchId = System.currentTimeMillis();
 
         String[] lines = payload.split(DELIMITER);
-        Stream.of(lines).forEach(line -> processLine(line, matchId));
+        Stream.of(lines).filter(line -> !line.isEmpty()).forEach(line -> processLine(line, matchId));
         return matchId;
     }
 
@@ -80,7 +80,8 @@ public class MatchServiceImpl implements MatchService {
         inputs[0] = StringUtils.substringAfter(inputs[0], "[");
         inputs[0] = StringUtils.substringBefore(inputs[0], "]");
         String[] times = inputs[0].split(":");
-        long milliseconds = Integer.valueOf(times[0]) * 60 * 60 * 1000;
+        long milliseconds;
+        milliseconds = Integer.valueOf(times[0]) * 60 * 60 * 1000;
         milliseconds += Integer.valueOf(times[1]) * 60 * 1000;
         milliseconds += Integer.valueOf(StringUtils.substringBefore(times[2], ".")) * 1000;
         milliseconds += Integer.valueOf(StringUtils.substringAfter(times[2], "."));

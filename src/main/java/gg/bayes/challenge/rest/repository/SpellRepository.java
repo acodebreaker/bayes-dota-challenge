@@ -11,5 +11,6 @@ import java.util.List;
 @Repository
 public interface SpellRepository extends CrudRepository<HeroSpell,Integer> {
 
-    List<HeroSpell> findByMatchIdAndHeroId(Long matchId, Integer heroId);
+    List<HeroSpell> findByMatchIdAndHeroName(Long matchId, String heroName);
+    HeroSpell findByMatchIdAndHeroNameAndSpell(Long matchId, String heroName, String spell);
 }

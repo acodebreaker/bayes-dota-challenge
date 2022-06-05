@@ -60,7 +60,7 @@ public class MatchServiceImpl implements MatchService {
     private void processLine(String line, Long matchId) {
         String[] inputs = line.split(" ");
         boolean contains = Arrays.stream(CommandTypes.values())
-                .map(x -> x.toString())
+                .map(Enum::toString)
                 .collect(Collectors.toList()).contains(inputs[2].toUpperCase());
         if(contains)
             CommandTypes.valueOf(inputs[2].toUpperCase()).action(inputs, repositories, matchId);

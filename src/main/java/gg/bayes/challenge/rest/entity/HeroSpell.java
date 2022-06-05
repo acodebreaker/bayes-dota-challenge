@@ -12,9 +12,9 @@ public class HeroSpell {
 
     @GeneratedValue
     @Id
-    private int id;
-    private int heroId;
+    private Long id;
+    private String heroName;
     private String spell;
     private int casts;
-    private int matchId;
+    private Long matchId;
 }

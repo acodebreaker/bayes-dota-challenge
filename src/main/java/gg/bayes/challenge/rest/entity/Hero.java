@@ -14,9 +14,7 @@ public class Hero {
     @Id
     @GeneratedValue
     private Integer id;
-    @Column(name = "name")
-    private String heroName;
-    @Column(name = "match_id")
+    private String hero;
     private Long matchId;
-    //\private Integer kills;
+    private int kills;
 }

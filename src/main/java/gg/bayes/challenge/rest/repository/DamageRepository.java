@@ -11,5 +11,6 @@ import java.util.Optional;
 @Repository
 public interface DamageRepository extends CrudRepository<Damage,Integer> {
 
-    List<Damage> findByMatchIdAndHeroId(Long matchId, Integer heroId);
+    List<Damage> findByMatchIdAndHeroName(Long matchId, String heroName);
+    List<Damage> findByMatchIdAndHeroNameAndTarget(Long matchId, String heroName, String target);
 }

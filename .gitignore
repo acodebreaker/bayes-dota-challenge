@@ -30,7 +30,5 @@ build/
 
 
 ### Others ###
-README.md
-TASK.md
 data/
 src/main/resources/logback-development.xml

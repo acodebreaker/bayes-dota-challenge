@@ -1,11 +1,9 @@
-package gg.bayes.challenge.service;
+package gg.bayes.challenge.rest.service;
 
 import gg.bayes.challenge.rest.model.HeroDamage;
 import gg.bayes.challenge.rest.model.HeroItems;
 import gg.bayes.challenge.rest.model.HeroKills;
 import gg.bayes.challenge.rest.model.HeroSpells;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.List;
 

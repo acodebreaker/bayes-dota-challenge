@@ -1,4 +1,4 @@
-package gg.bayes.challenge.service.impl;
+package gg.bayes.challenge.rest.service.impl;
 
 import gg.bayes.challenge.rest.mapper.DamageMapper;
 import gg.bayes.challenge.rest.mapper.HeroMapper;
@@ -9,7 +9,7 @@ import gg.bayes.challenge.rest.model.HeroItems;
 import gg.bayes.challenge.rest.model.HeroKills;
 import gg.bayes.challenge.rest.model.HeroSpells;
 import gg.bayes.challenge.rest.repository.*;
-import gg.bayes.challenge.service.HeroService;
+import gg.bayes.challenge.rest.service.HeroService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

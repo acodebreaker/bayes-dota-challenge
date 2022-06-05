@@ -1,4 +1,4 @@
-package gg.bayes.challenge.service;
+package gg.bayes.challenge.rest.service;
 
 public interface MatchService {
     Long ingestMatch(String payload);

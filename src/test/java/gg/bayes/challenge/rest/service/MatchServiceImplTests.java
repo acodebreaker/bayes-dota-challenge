@@ -1,4 +1,4 @@
-package gg.bayes.challenge.service;
+package gg.bayes.challenge.rest.service;
 
 import gg.bayes.challenge.rest.entity.HeroSpell;
 import gg.bayes.challenge.rest.repository.DamageRepository;
@@ -39,14 +39,8 @@ public class MatchServiceImplTests {
 
     private static final Long MOCK_MATCH_ID = 123L;
     private static final String MOCK_HERO_NAME = "HERONAME";
-    private static final String MOCK_ITEM = "HEROITEM";
-    private static final int MOCK_KILLS = 2;
-    private static final Long MOCK_TIMESTAMP = 56789L;
     private static final String MOCK_SPELL = "SPELL";
     private static final int MOCK_CASTS = 9;
-    private static final String MOCK_TARGET = "TARGET";
-    private static final int MOCK_DAMAGE = 567;
-    private static final int MOCK_DAMAGE_INSTANCES = 10;
 
 
     @Test

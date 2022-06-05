@@ -1,4 +1,4 @@
-package gg.bayes.challenge.service;
+package gg.bayes.challenge.rest.service;
 
 import gg.bayes.challenge.rest.entity.Damage;
 import gg.bayes.challenge.rest.entity.Hero;

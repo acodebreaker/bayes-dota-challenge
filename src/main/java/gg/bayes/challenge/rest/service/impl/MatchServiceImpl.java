@@ -1,4 +1,4 @@
-package gg.bayes.challenge.service.impl;
+package gg.bayes.challenge.rest.service.impl;
 
 import gg.bayes.challenge.rest.command.CommandTypes;
 import gg.bayes.challenge.rest.input.InputUtils;
@@ -6,7 +6,7 @@ import gg.bayes.challenge.rest.repository.DamageRepository;
 import gg.bayes.challenge.rest.repository.HeroRepository;
 import gg.bayes.challenge.rest.repository.ItemRepository;
 import gg.bayes.challenge.rest.repository.SpellRepository;
-import gg.bayes.challenge.service.MatchService;
+import gg.bayes.challenge.rest.service.MatchService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

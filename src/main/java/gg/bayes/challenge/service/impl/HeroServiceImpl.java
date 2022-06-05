@@ -1,5 +1,6 @@
 package gg.bayes.challenge.service.impl;
 
+import gg.bayes.challenge.rest.mapper.DamageMapper;
 import gg.bayes.challenge.rest.mapper.HeroMapper;
 import gg.bayes.challenge.rest.mapper.ItemMapper;
 import gg.bayes.challenge.rest.mapper.SpellMapper;
@@ -12,10 +13,7 @@ import gg.bayes.challenge.service.HeroService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
-import java.util.stream.Collectors;
 
 @Service
 public class HeroServiceImpl implements HeroService {
@@ -28,6 +26,7 @@ public class HeroServiceImpl implements HeroService {
     private final ItemMapper itemMapper;
     private final SpellMapper spellMapper;
     private final HeroMapper heroMapper;
+    private final DamageMapper damageMapper;
 
     @Autowired
     public HeroServiceImpl(KillsRepository killsRepository,
@@ -37,7 +36,8 @@ public class HeroServiceImpl implements HeroService {
                            ItemRepository itemRepository,
                            ItemMapper itemMapper,
                            SpellMapper spellMapper,
-                           HeroMapper heroMapper) {
+                           HeroMapper heroMapper,
+                           DamageMapper damageMapper) {
         this.killsRepository = killsRepository;
         this.spellRepository = spellRepository;
         this.damageRepository = damageRepository;
@@ -46,6 +46,7 @@ public class HeroServiceImpl implements HeroService {
         this.itemMapper = itemMapper;
         this.spellMapper = spellMapper;
         this.heroMapper = heroMapper;
+        this.damageMapper = damageMapper;
     }
 
     @Override
@@ -67,6 +68,6 @@ public class HeroServiceImpl implements HeroService {
 
     @Override
     public List<HeroDamage> getDamage(Long matchId, String heroName) {
-
+        return damageMapper.map(damageRepository.findByMatchIdAndHeroName(matchId, heroName));
     }
 }

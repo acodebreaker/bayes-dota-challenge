@@ -62,7 +62,7 @@ public enum CommandTypes implements Command {
         public Integer action(String[] inputs, Map<String, Object> repositories, Long matchId) {
             HeroRepository heroRepository = (HeroRepository) repositories.get("heroRepository");
             String killer = inputs[5].substring(inputs[1].lastIndexOf("_") + 1);
-            Hero hero =heroRepository.findByMatchIdAndHeroName(matchId, killer);
+            Hero hero =heroRepository.findByMatchIdAndHero(matchId, killer);
             if(hero==null){
                 hero = new Hero();
                 hero.setMatchId(matchId);

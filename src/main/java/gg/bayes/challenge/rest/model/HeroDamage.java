@@ -5,7 +5,6 @@ import lombok.Builder;
 import lombok.Data;
 
 @Data
-@Builder
 public class HeroDamage {
     private String target;
     @JsonProperty("damage_instances")

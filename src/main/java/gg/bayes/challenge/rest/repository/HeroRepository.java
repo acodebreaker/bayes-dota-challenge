@@ -10,6 +10,6 @@ import java.util.Optional;
 @Repository
 public interface HeroRepository extends CrudRepository<Hero,Integer> {
 
-    Hero findByMatchIdAndHeroName(Long matchId, String heroName);
+    Hero findByMatchIdAndHero(Long matchId, String heroName);
     List<Hero> findByMatchId(Long matchId);
 }

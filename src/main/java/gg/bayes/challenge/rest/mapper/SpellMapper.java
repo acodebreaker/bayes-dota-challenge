@@ -12,8 +12,8 @@ import java.util.List;
 public interface SpellMapper {
 
 
-    HeroSpells map(HeroSpell item);
+    HeroSpells map(HeroSpell heroSpell);
 
     @IterableMapping(nullValueMappingStrategy = NullValueMappingStrategy.RETURN_NULL)
-    List<HeroSpells> map(List<HeroSpell> herospell);
+    List<HeroSpells> map(List<HeroSpell> herospells);
 }

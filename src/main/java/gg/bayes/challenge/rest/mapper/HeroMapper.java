@@ -14,5 +14,5 @@ public interface HeroMapper {
     HeroKills map(Hero hero);
 
     @IterableMapping(nullValueMappingStrategy = NullValueMappingStrategy.RETURN_NULL)
-    List<HeroKills> map(List<Hero> items);
+    List<HeroKills> map(List<Hero> heroes);
 }

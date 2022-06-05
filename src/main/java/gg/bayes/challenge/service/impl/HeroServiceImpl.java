@@ -18,7 +18,6 @@ import java.util.List;
 @Service
 public class HeroServiceImpl implements HeroService {
 
-    private final KillsRepository killsRepository;
     private final SpellRepository spellRepository;
     private final DamageRepository damageRepository;
     private final HeroRepository heroRepository;
@@ -29,16 +28,15 @@ public class HeroServiceImpl implements HeroService {
     private final DamageMapper damageMapper;
 
     @Autowired
-    public HeroServiceImpl(KillsRepository killsRepository,
-                           SpellRepository spellRepository,
-                           DamageRepository damageRepository,
-                           HeroRepository heroRepository,
-                           ItemRepository itemRepository,
-                           ItemMapper itemMapper,
-                           SpellMapper spellMapper,
-                           HeroMapper heroMapper,
-                           DamageMapper damageMapper) {
-        this.killsRepository = killsRepository;
+    public HeroServiceImpl(
+            SpellRepository spellRepository,
+            DamageRepository damageRepository,
+            HeroRepository heroRepository,
+            ItemRepository itemRepository,
+            ItemMapper itemMapper,
+            SpellMapper spellMapper,
+            HeroMapper heroMapper,
+            DamageMapper damageMapper) {
         this.spellRepository = spellRepository;
         this.damageRepository = damageRepository;
         this.heroRepository = heroRepository;
@@ -51,7 +49,7 @@ public class HeroServiceImpl implements HeroService {
 
     @Override
     public List<HeroItems> getItems(Long matchId, String heroName) {
-        return itemMapper.map(itemRepository.findByMatchIdAndHeroName(matchId,heroName));
+        return itemMapper.map(itemRepository.findByMatchIdAndHeroName(matchId, heroName));
     }
 
     @Override

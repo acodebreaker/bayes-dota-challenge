@@ -37,15 +37,19 @@ public class MatchServiceImpl implements MatchService {
     private Map<String, Object> repositories;
 
     private static final String DELIMITER = "\n";
+    private static final String DAMAGE_REPO = "damageRepository";
+    private static final String HERO_REPO = "heroRepository";
+    private static final String ITEM_REPO = "itemRepository";
+    private static final String SPELL_REPO = "spellRepository";
 
 
     @PostConstruct
     public void initialize() {
         repositories = new HashMap<>();
-        repositories.put("damageRepository", damageRepository);
-        repositories.put("heroRepository", heroRepository);
-        repositories.put("itemRepository", itemRepository);
-        repositories.put("spellRepository", spellRepository);
+        repositories.put(DAMAGE_REPO, damageRepository);
+        repositories.put(HERO_REPO, heroRepository);
+        repositories.put(ITEM_REPO, itemRepository);
+        repositories.put(SPELL_REPO, spellRepository);
     }
 
     @Override

@@ -25,6 +25,10 @@ package gg.bayes.challenge.rest.entity;
 
 
 
+Link to access H2 console :-
+
+http://localhost:8080/h2-console
+
 
 
 Curl to post the data :-

@@ -67,14 +67,6 @@ public class HeroServiceImpl implements HeroService {
 
     @Override
     public List<HeroDamage> getDamage(Long matchId, String heroName) {
-        return Optional.ofNullable(damageRepository.findByMatchIdAndHeroName(matchId, heroName))
-                .orElseGet(ArrayList::new)
-                .stream()
-                .map(damage -> HeroDamage.builder()
-                        .target(damage.getTarget())
-                        .damageInstances(damage.getDamageInstances())
-                        .totalDamage(damage.getTotalDamage())
-                        .build())
-                .collect(Collectors.toList());
+
     }
 }

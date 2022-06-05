@@ -53,7 +53,7 @@ public class MatchController {
         return ResponseEntity.ok(heroService.getSpells(matchId, heroName));
     }
 
-    @GetMapping("{matchId}/{x}/damage")
+    @GetMapping("{matchId}/{heroName}/damage")
     public ResponseEntity<List<HeroDamage>> getDamage(@PathVariable("matchId") Long matchId,
                                                       @PathVariable("heroName") String heroName) {
         return ResponseEntity.ok(heroService.getDamage(matchId, heroName));

@@ -1,6 +1,7 @@
 package gg.bayes.challenge.rest.command;
 
 
+import gg.bayes.challenge.rest.entity.Damage;
 import gg.bayes.challenge.rest.entity.Hero;
 import gg.bayes.challenge.rest.entity.HeroSpell;
 import gg.bayes.challenge.rest.entity.Item;
@@ -80,8 +81,26 @@ public enum CommandTypes implements Command {
         @Override
         public Integer action(String[] inputs, Map<String, Object> repositories, Long matchId) {
             DamageRepository damageRepository = (DamageRepository) repositories.get("damageRepository");
-            String heroName =
+            String heroName = inputs[1].substring(inputs[1].lastIndexOf("_") + 1);
+            String target = inputs[3].substring(inputs[3].lastIndexOf("_") + 1);
+            Integer damageDone = Integer.valueOf(inputs[6]);
+            Damage damage = damageRepository.findByMatchIdAndHeroNameAndTarget(matchId, heroName, target);
+            if(damage == null){
+                Damage damages = new Damage();
+                damages.setDamageInstances(1);
+                damages.setHeroName(heroName);
+                damages.setMatchId(matchId);
+                damages.setTotalDamage(damageDone);
+                damageRepository.save(damages);
 
+            }
+            else{
+                damage.setTotalDamage(damage.getTotalDamage() + damageDone);
+                damage.setDamageInstances(damage.getDamageInstances() + 1);
+                damageRepository.save(damage);
+            }
+
+            return 1;
         }
 
     },
